@@ -27,25 +27,26 @@ Anggota:
 * [Soal 17](https://github.com/ThomasFel/Jarkom-Modul-2-A08-2021#Soal-17)
 
 ## Narasi Pendahuluan
+
 Luffy adalah seorang yang akan jadi Raja Bajak Laut. Demi membuat Luffy menjadi Raja Bajak Laut, Nami ingin membuat sebuah peta, bantu Nami untuk membuat peta berikut:
-<!--![](https://lh5.googleusercontent.com/NcmttgakCE5u-8tajOocOZC3WAZVwVYF1spMZZ_bMnOheHHvq7cA1q0VecpAo44fwsS7s5es8KUrBWHVfgn0CG9db7-RcqW7wxU-dMkNQ-5UODusXpDoNdY-0Zw0Y_881A=s1600)-->
-<img src="https://lh5.googleusercontent.com/NcmttgakCE5u-8tajOocOZC3WAZVwVYF1spMZZ_bMnOheHHvq7cA1q0VecpAo44fwsS7s5es8KUrBWHVfgn0CG9db7-RcqW7wxU-dMkNQ-5UODusXpDoNdY-0Zw0Y_881A=s1600" width=850>
+
+<img src="https://user-images.githubusercontent.com/37539546/139295630-c0a6b68f-848f-44fc-bbfb-a04615961fc9.JPG" width=600>
 
 ## Soal 1
 
-### EniesLobby akan dijadikan sebagai DNS Master, Water7 akan dijadikan DNS Slave, dan Skypie akan digunakan sebagai Web Server. Terdapat 2 Client yaitu Loguetown, dan Alabasta. Semua node terhubung pada router Foosha, sehingga dapat mengakses internet.
+### EniesLobby akan dijadikan sebagai DNS Master, Water7 akan dijadikan DNS Slave, dan Skypie akan digunakan sebagai Web Server. Terdapat 2 client yaitu Loguetown dan Alabasta. Semua node terhubung pada router Foosha sehingga dapat mengakses internet.
 
 ### Jawaban:
 
 ## Soal 2
 
-### Luffy ingin menghubungi Franky yang berada di EniesLobby dengan denden mushi. Kalian diminta Luffy untuk membuat website utama dengan mengakses **franky.yyy.com** dengan alias **www.franky.yyy.com** pada folder kaizoku.
+### Luffy ingin menghubungi Franky yang berada di EniesLobby dengan denden mushi. Kalian diminta Luffy untuk membuat website utama dengan mengakses [**franky.yyy.com**](franky.yyy.com) dengan alias **www.franky.yyy.com** pada folder `kaizoku`.
 
 ### Jawaban:
 
 ## Soal 3
 
-### Setelah itu buat subdomain **super.franky.yyy.com** dengan alias **www.super.franky.yyy.com** yang diatur DNS nya di EniesLobby dan mengarah ke Skypie.
+### Setelah itu buat subdomain [**super.franky.yyy.com**](super.franky.yyy.com) dengan alias **www.super.franky.yyy.com** yang diatur DNS-nya di EniesLobby dan mengarah ke Skypiea.
 
 ### Jawaban:
 
@@ -57,91 +58,84 @@ Luffy adalah seorang yang akan jadi Raja Bajak Laut. Demi membuat Luffy menjadi 
 
 ## Soal 5
 
-### Setelah itu terdapat subdomain mecha.franky.yyy.com dengan alias www.mecha.franky.yyy.com yang didelegasikan dari EniesLobby ke Water7 dengan IP menuju ke Skypie dalam folder sunnygo.
+### Supaya tetap bisa menghubungi Franky jika server EniesLobby rusak, maka buat Water7 sebagai DNS Slave untuk domain utama.
 
 ### Jawaban:
 
 ## Soal 6
 
-### Setelah itu terdapat subdomain **mecha.franky.yyy.com** dengan alias **www.mecha.franky.yyy.com** yang didelegasikan dari EniesLobby ke Water7 dengan IP<sup>1</sup> menuju ke Skypie dalam folder sunnygo<sup>2</sup>.
-note: 
-<sup>1</sup> 1.0 → 1.1: Mengubah kalimat “yang didelegasikan ke Water7 menuji ke Skypie” menjadi “yang didelegasikan dari EniesLobby ke Water7 dengan IP menuju ke Skypie”.  
-<sup>2</sup> 1.0 → 1.1: Menghapus “dengan alias”.
+### Setelah itu, terdapat subdomain [**mecha.franky.yyy.com**](mecha.franky.yyy.com) dengan alias **www.mecha.franky.yyy.com** yang didelegasikan dari EniesLobby ke Water7 dengan IP menuju ke Skypiea dalam folder `sunnygo`.
 
 ### Jawaban:
 
 ## Soal 7
 
-### Untuk memperlancar komunikasi Luffy dan rekannya, dibuatkan subdomain melalui Water7<sup>3</sup> dengan nama **general.mecha.franky.yyy.com** dengan alias [**www.general.mecha.franky<sup>4</sup>.yyy.com**](www.general.mecha.franky.yyy.com) yang mengarah ke Skypie.
-note:  
-<sup>3</sup> 1.1 → 1.2: Franky menjadi Water7.  
-<sup>4</sup> 1.1 → 1.2: Domain “frank” menjadi “franky”.
+### Untuk memperlancar komunikasi Luffy dan rekannya, dibuatkan subdomain melalui Water7 dengan nama [**general.mecha.franky.yyy.com**](general.mecha.franky.yyy.com) dengan alias **www.general.mecha.franky.yyy.com** yang mengarah ke Skypiea.
 
 ### Jawaban:
 
 ## Soal 8
 
-### Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Webserver. Pertama dengan webserver [**www.franky.yyy.com**](http://www.franky.com). Pertama, luffy membutuhkan webserver dengan DocumentRoot pada /var/www/franky.yyy.com.
+### Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Web Server. Pertama dengan Web Server **www.franky.yyy.com**. Pertama, Luffy membutuhkan Web Server dengan DocumentRoot pada `/var/www/franky.yyy.com`.
 
 ### Jawaban:
 
 ## Soal 9
 
-### Setelah itu, Luffy juga membutuhkan agar url [**www.franky.yyy.com/index.php/home**](http://www.franky.com/index.php/home) dapat menjadi menjadi [**www.franky.yyy.com/home**](http://www.franky.com/home).
+### Setelah itu, Luffy juga membutuhkan agar URL **www.franky.yyy.com/index.php/home** dapat menjadi menjadi **www.franky.yyy.com/home**.
 
 ### Jawaban:
 
 ## Soal 10
 
-### Setelah itu, pada subdomain [**www.super.franky.yyy.com**](http://www.super.franky.com), Luffy membutuhkan penyimpanan aset yang memiliki DocumentRoot pada /var/www/super.franky.yyy.com.
+### Setelah itu, pada subdomain **www.super.franky.yyy.com**, Luffy membutuhkan penyimpanan aset yang memiliki DocumentRoot pada `/var/www/super.franky.yyy.com`.
 
 ### Jawaban:
 
 ## Soal 11
 
-### Akan tetapi, pada folder /public, Luffy ingin hanya dapat melakukan directory listing saja.
+### Akan tetapi, pada folder `/public`, Luffy ingin hanya dapat melakukan directory listing saja.
 
 ### Jawaban:
 
 ## Soal 12
 
-### Tidak hanya itu, Luffy juga menyiapkan error file 404.html pada folder /error untuk mengganti error kode pada apache.
+### Tidak hanya itu, Luffy juga menyiapkan error file `404.html` pada folder `/error` untuk mengganti error kode pada apache.
 
 ### Jawaban:
 
 ## Soal 13
 
-### Luffy juga meminta Nami untuk dibuatkan konfigurasi virtual host. Virtual host ini bertujuan untuk dapat mengakses file asset [**www.super.franky.yyy.com/public/js**](http://www.super.franky.xxx.com/public/js) menjadi [](http://www.super.franky.com/js) [**www.super.franky.yyy.com/js**](http://www.super.franky.xxx.com/js).
+### Luffy juga meminta Nami untuk dibuatkan konfigurasi virtual host. Virtual host ini bertujuan untuk dapat mengakses file asset **www.super.franky.yyy.com/public/js** menjadi **www.super.franky.yyy.com/js**.
 
 ### Jawaban:
 
 ## Soal 14
 
-### Dan Luffy meminta untuk web [**www.general.mecha.franky.yyy.com**](http://www.mecha.franky.com) hanya bisa diakses dengan port 15000 dan port 15500.
+### Dan Luffy meminta untuk web **www.general.mecha.franky.yyy.com** hanya bisa diakses dengan port 15000 dan port 15500.
 
 ### Jawaban:
 
 ## Soal 15
 
-### dengan autentikasi username luffy dan password onepiece dan file di /var/www/general.mecha.franky.yyy.
+### Dengan autentikasi username `luffy` dan password `onepiece` dan file di `/var/www/general.mecha.franky.yyy`.
 
 ### Jawaban:
 
 ## Soal 16
 
-### Dan setiap kali mengakses IP **Skypie**<sup>5</sup> akan dialihkan secara otomatis ke [](http://www.franky.com) [**www.franky.yyy.com**](http://www.franky.xxx.com).
-note:  
-<sup>5</sup> 1.2 → 1.3 : IP EniesLobby menjadi IP Skypie.
+### Dan setiap kali mengakses IP Skypiea akan dialihkan secara otomatis ke **www.franky.yyy.com**.
 
 ### Jawaban:
 
 ## Soal 17
 
-### Dikarenakan Franky juga ingin mengajak temannya untuk dapat menghubunginya melalui website [**www.super.franky.yyy.com**](http://www.super.franky.com), dan dikarenakan pengunjung web server pasti akan bingung dengan randomnya images yang ada, maka Franky juga meminta untuk mengganti request gambar yang memiliki substring “franky” akan diarahkan menuju franky.png. Maka bantulah Luffy untuk membuat konfigurasi dns dan web server ini!
+### Dikarenakan Franky juga ingin mengajak temannya untuk dapat menghubunginya melalui website **www.super.franky.yyy.com** dan karena pengunjung Web Server pasti akan bingung dengan random-nya image yang ada, maka Franky juga meminta untuk mengganti request gambar yang memiliki substring "franky" dan akan diarahkan menuju `franky.png`. Bantulah Luffy untuk membuat konfigurasi DNS dan Web Server ini!
 
 ### Jawaban:
 
-## PS
-PS:
-1.  yyy pada url adalah kode kelompok anda.
+## NOTES
+1.  `yyy` pada URL adalah kode kelompok anda.
 2.  File Requirement [Github](https://github.com/FeinardSlim/Praktikum-Modul-2-Jarkom).
+
+## Kendala
