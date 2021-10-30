@@ -170,7 +170,7 @@ Dalam konfigurasi ini sudah ditambahkan *record* **CNAME** [**www.franky.a08.com
 service bind9 restart
 ```
 
-Lakukan *testing* dengan menambahkan `nameserver 10.3.2.2` pada `Loguetown` dan `Alabasta` untuk cek apakah [**franky.a08.com**](franky.a08.com) atau [**www.franky.a08.com**](www.franky.a08.com) dapat diakses. Jika sukses, maka akan memunculkan hasil seperti berikut.
+Lakukan *testing* dengan menambahkan `nameserver 10.3.2.2` (IP EniesLobby) pada `Loguetown` dan `Alabasta` untuk cek apakah [**franky.a08.com**](franky.a08.com) atau [**www.franky.a08.com**](www.franky.a08.com) dapat diakses. Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 <img src="https://user-images.githubusercontent.com/37539546/139522919-ded4c8b1-6574-4f97-a8d5-53c86dace204.JPG" width="600">
 
@@ -181,6 +181,20 @@ Lakukan *testing* dengan menambahkan `nameserver 10.3.2.2` pada `Loguetown` dan 
 ### Setelah itu buat subdomain [**super.franky.yyy.com**](super.franky.yyy.com) dengan alias **www.super.franky.yyy.com** yang diatur DNS-nya di EniesLobby dan mengarah ke Skypiea.
 
 ### Jawaban:
+
+Buka *file* [**franky.a08.com**](franky.a08.com) dan edit seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139523149-b1759e13-7cea-4cbc-aebb-210e1e4c624c.JPG" width="600">
+
+Buat *file* lagi, yaitu [**super.franky.a08.com**](super.franky.a08.com) dan edit seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139523288-18162232-2136-4c87-9085-a57c6d988507.JPG" width="600">
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah [**super.franky.a08.com**](super.franky.a08.com) atau [**www.super.franky.a08.com**](www.super.franky.a08.com) dapat diakses. Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139523365-e34b96a3-692e-41a7-a0d5-66bcf0ba5eb2.JPG" width="600">
+
+<img src="https://user-images.githubusercontent.com/37539546/139523384-21b48893-eb45-4d8a-a88c-8197453bcdef.JPG" width="600">
 
 ## Soal 4
 
@@ -266,8 +280,8 @@ Lakukan *testing* dengan menambahkan `nameserver 10.3.2.2` pada `Loguetown` dan 
 
 ### Jawaban:
 
-## NOTES
-1.  `yyy` pada URL adalah kode kelompok anda.
-2.  File Requirement [Github](https://github.com/FeinardSlim/Praktikum-Modul-2-Jarkom).
+## Notes
+1.  **yyy** pada URL adalah kode kelompok.
+2.  *File requirement* [Github](https://github.com/FeinardSlim/Praktikum-Modul-2-Jarkom).
 
 ## Kendala
