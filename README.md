@@ -741,6 +741,46 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 ### Jawaban:
 
+### Skypiea
+
+Buat *username* dan *password* baru dengan *command* berikut. *Username* yang dipakai adalah **luffy** dan *password*-nya **onepiece**.
+```
+htpasswd -c /etc/apache2/.htpasswd luffy
+```
+
+Akan muncul di terminal seperti ini:
+
+<img src="https://user-images.githubusercontent.com/37539546/139534557-bd043099-7d52-4366-b980-97f827784ef1.JPG" width="600">
+
+Buka *file* **general.mecha.franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139534673-82a35121-0dee-497a-8950-61bc68648667.JPG" width="600">
+
+Buat *file* **.htaccess** pada folder **/var/www/general.mecha.franky.a08.com** dan tambahkan seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139534798-e1dae63d-9bed-43f0-b96e-11ce348bb9ba.JPG" width="350">
+
+*Restart* **apache2**.
+```
+service apache2 restart
+```
+
+### Loguetown atau Alabasta
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah autentikasi berhasil dibuat.
+```
+lynx general.mecha.franky.a08.com:15000 atau general.mecha.franky.a08.com:15500
+lynx www.general.mecha.franky.a08.com:15000 atau www.general.mecha.franky.a08.com:15500
+```
+
+Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139535026-36a9c9aa-5876-42a4-8f9a-ebc363c00500.JPG" width="600">
+
+<img src="https://user-images.githubusercontent.com/37539546/139535030-1ed55f47-fb0a-40cf-b3d1-66813596785f.JPG" width="600">
+
+<img src="https://user-images.githubusercontent.com/37539546/139534298-175a5cc6-ef59-4546-9c1a-cf450331147b.JPG" width="600">
+
 ## Soal 16
 
 ### Dan setiap kali mengakses IP Skypiea akan dialihkan secara otomatis ke **www.franky.yyy.com**.
