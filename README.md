@@ -625,6 +625,8 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 ### Jawaban:
 
+### Skypiea
+
 Buka *file* **franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
 
 <img src="https://user-images.githubusercontent.com/37539546/139533705-2880407c-a6d6-4e0e-bcc0-d91acf922616.JPG" width="600">
@@ -651,6 +653,29 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 ### Luffy juga meminta Nami untuk dibuatkan konfigurasi virtual host. Virtual host ini bertujuan untuk dapat mengakses file asset **www.super.franky.yyy.com/public/js** menjadi **www.super.franky.yyy.com/js**.
 
 ### Jawaban:
+
+### Skypiea
+
+Buka *file* **franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139533893-3993743f-74a7-4689-b390-08cdf7275951.JPG" width="600">
+
+*Restart* **apache2**.
+```
+service apache2 restart
+```
+
+### Loguetown atau Alabasta
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah **virtual host** berhasil dibuat.
+```
+lynx super.franky.a08.com/public/js
+lynx www.super.franky.a08.com/public/js
+```
+
+Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139533938-687bc140-7d31-4424-a998-fbb57c493f34.JPG" width="600">
 
 ## Soal 14
 
