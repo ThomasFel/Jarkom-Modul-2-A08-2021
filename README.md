@@ -781,6 +781,8 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 <img src="https://user-images.githubusercontent.com/37539546/139534298-175a5cc6-ef59-4546-9c1a-cf450331147b.JPG" width="600">
 
+Di gambar terlihat diminta *username* dan *password* untuk proses autentikasi.
+
 ## Soal 16
 
 ### Dan setiap kali mengakses IP Skypiea akan dialihkan secara otomatis ke **www.franky.yyy.com**.
@@ -797,6 +799,11 @@ Buat *file* **.htaccess** pada folder **/var/www/html** dan tambahkan seperti ko
 
 <img src="https://user-images.githubusercontent.com/37539546/139535381-0d542410-62eb-402e-836e-e7647850e01f.JPG" width="350">
 
+*Restart* **apache2**.
+```
+service apache2 restart
+```
+
 ### Loguetown atau Alabasta
 
 Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah *redirect* berhasil.
@@ -810,7 +817,7 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 <img src="https://user-images.githubusercontent.com/37539546/139532643-22796155-cfc2-4983-a7bc-53818e75ea2b.JPG" width="600">
 
-**RewriteCond** melakukan filter pada *request* dengan IP **10.19.2.4** (IP Skypie), setelah itu **RewriteRule** akan menerima segala *request* dengan IP Skypie dengan folder atau *path* apapun dan segera melakukan *redirect* 301 ke [**www.franky.a08.com**](www.franky.a08.com).
+**RewriteCond** melakukan filter pada *request* dengan IP **10.3.2.4** (IP Skypie), setelah itu **RewriteRule** akan menerima segala *request* dengan IP Skypie dengan folder atau *path* apapun dan segera melakukan *redirect* 301 ke [**www.franky.a08.com**](www.franky.a08.com).
 
 ## Soal 17
 
@@ -818,8 +825,48 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 ### Jawaban:
 
+### Skypiea
+
+Buka *file* **super.franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139536428-74d85d3d-5263-4fc6-91d7-df66ed3f07e8.JPG" width="600">
+
+Buat *file* **.htaccess** pada folder **/var/www/super.franky.a08.com** dan tambahkan seperti konfigurasi berikut.
+```
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)franky(.*)$ http://www.super.franky.c08.com/public/images/franky.png [L,R]
+```
+
+*Restart* **apache2**.
+```
+service apache2 restart
+```
+
+### Loguetown atau Alabasta
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah *request* gambar berhasil.
+```
+lynx super.franky.a08.com/public/images/frankyrobot.png
+lynx www.super.franky.a08.com/public/images/frankyrobot.png
+```
+
+Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139536846-46eb001d-65f8-44c2-a15a-abbad3bbf9ee.jpg" width="600">
+
+<img src="https://user-images.githubusercontent.com/37539546/139536865-5ff21508-58f5-4693-ac4e-3fae18989bcd.jpg" width="600">
+
+Muncul perintah untuk mengunduh gambar.
+
+<img src="https://user-images.githubusercontent.com/37539546/139536877-d7279025-f026-4608-a1f1-5e93a5a20746.JPG" width="600">
+
+<img src="https://user-images.githubusercontent.com/37539546/139536881-1c34d487-85cf-4000-80f2-6e4dff3c05f7.JPG" width="600">
+
 ## Notes
 1.  **yyy** pada URL adalah kode kelompok.
+kelompok.
 2.  *File requirement* [Github](https://github.com/FeinardSlim/Praktikum-Modul-2-Jarkom).
 
 ## Kendala
