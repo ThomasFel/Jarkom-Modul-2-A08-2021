@@ -376,15 +376,49 @@ service bind9 restart
 
 Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah [**mecha.franky.a08.com**](mecha.franky.a08.com) atau [**www.mecha.franky.a08.com**](www.mecha.franky.a08.com) dapat diakses. Jika sukses, maka akan memunculkan hasil seperti berikut.
 
-<img src="https://user-images.githubusercontent.com/37539546/139531180-588860e5-045d-4364-86d1-8076322eb42a.JPG" width="500">
+<img src="https://user-images.githubusercontent.com/37539546/139531613-c191c6b2-8c7a-4d01-82b7-def42514118f.JPG" width="500">
 
-<img src="https://user-images.githubusercontent.com/37539546/139531208-b9ad12cc-0091-4625-bdec-a83040a0d0e6.JPG" width="500">
+<img src="https://user-images.githubusercontent.com/37539546/139531624-56f01b46-11de-4543-a02a-988f1ce00cd3.JPG" width="500">
 
 ## Soal 7
 
 ### Untuk memperlancar komunikasi Luffy dan rekannya, dibuatkan subdomain melalui Water7 dengan nama [**general.mecha.franky.yyy.com**](general.mecha.franky.yyy.com) dengan alias **www.general.mecha.franky.yyy.com** yang mengarah ke Skypiea.
 
 ### Jawaban:
+
+### Water7
+
+Tambahkan konfigurasi berikut pada **/etc/bind/named.conf.local** di `Water7`.
+```
+zone "general.mecha.franky.a08.com" {
+    type master;
+    file "/etc/bind/sunnygo/general.mecha.franky.a08.com";
+};
+```
+
+*Copy file* **db.local** ke dalam folder **sunnygo** dan ubah namanya menjadi [**general.mecha.franky.a08.com**](mecha.franky.a08.com).
+```
+cp /etc/bind/db.local /etc/bind/jarkom/general.mecha.franky.a08.com
+```
+
+Buka *file* [**general.mecha.franky.a08.com**](general.mecha.franky.a08.com) dan edit seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139531485-d16ce9c1-ca0b-497c-9cf2-7f32e1b026b6.JPG" width="600">
+
+Dalam konfigurasi ini sudah ditambahkan *record* **CNAME** [**www.general.mecha.franky.a08.com**](www.general.mecha.franky.a08.com) untuk membuat alias yang mengarahkan domain ke [**general.mecha.franky.a08.com**](general.mecha.franky.a08.com).
+
+*Restart* **bind9**.
+```
+service bind9 restart
+```
+
+### Loguetown atau Alabasta
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah [**general.mecha.franky.a08.com**](general.mecha.franky.a08.com) atau [**www.general.mecha.franky.a08.com**](www.general.mecha.franky.a08.com) dapat diakses. Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139531547-b314ca87-c5ea-4be1-9174-5b909464ee60.JPG" width="500">
+
+<img src="https://user-images.githubusercontent.com/37539546/139531556-772c390d-1c65-4eb9-9851-5a3764831a98.JPG" width="500">
 
 ## Soal 8
 
