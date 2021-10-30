@@ -596,6 +596,29 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 ### Jawaban:
 
+### Skypiea
+
+Buka *file* **franky.a08.com.conf** dan edit seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139533527-07703fd8-ca6b-49f6-a7a9-d55a9494f054.JPG" width="600">
+
+*Restart* **apache2**.
+```
+service apache2 restart
+```
+
+### Loguetown atau Alabasta
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah directory listing berhasil.
+```
+lynx super.franky.a08.com/public
+lynx www.super.franky.a08.com/public
+```
+
+Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139533619-16eb1ea6-7dd0-428e-a8d4-89167c26169c.JPG" width="600">
+
 ## Soal 12
 
 ### Tidak hanya itu, Luffy juga menyiapkan error file `404.html` pada folder `/error` untuk mengganti error kode pada apache.
