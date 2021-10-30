@@ -143,9 +143,9 @@ nano /etc/bind/named.conf.local
 
 Isi konfigurasi domain [**franky.yyy.com**](franky.yyy.com) sesuai sintaks berikut.
 ```
-zone "franky.A08.com" {
+zone "franky.a08.com" {
     type master;
-    file "/etc/bind/kaizoku/franky.B06.com";
+    file "/etc/bind/kaizoku/franky.a08.com";
 };
 ```
 
@@ -190,6 +190,14 @@ Buat *file* lagi, yaitu [**super.franky.a08.com**](super.franky.a08.com) dan edi
 
 <img src="https://user-images.githubusercontent.com/37539546/139523288-18162232-2136-4c87-9085-a57c6d988507.JPG" width="600">
 
+Tambahkan konfigurasi berikut pada **/etc/bind/named.conf.local**.
+```
+zone "super.franky.a08.com" {
+    type master;
+    file "/etc/bind/kaizoku/super.franky.a08.com";
+};
+```
+
 Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah [**super.franky.a08.com**](super.franky.a08.com) atau [**www.super.franky.a08.com**](www.super.franky.a08.com) dapat diakses. Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 <img src="https://user-images.githubusercontent.com/37539546/139523365-e34b96a3-692e-41a7-a0d5-66bcf0ba5eb2.JPG" width="600">
@@ -201,6 +209,42 @@ Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah [**super.fran
 ### Buat juga reverse domain untuk domain utama.
 
 ### Jawaban:
+
+Edit *file* **/etc/bind/named.conf.local** pada `EniesLobby` dan tambahkan konfigurasi berikut.  Tambahkan *reverse* dari 3 *bytes* awal dari IP yang ingin dilakukan **Reverse DNS**. Dalam hal ini IP **10.3.2** untuk IP dari *record* sehingga *reverse*-nya adalah **2.3.10**.
+```
+zone "2.3.10.in-addr.arpa" {
+    type master;
+    file "/etc/bind/kaizoku/2.3.10.in-addr.arpa";
+};
+```
+
+*Copy file* **db.local** ke dalam folder **kaizoku** dan ubah namanya menjadi [**2.3.10.in-addr.arpa**](2.3.10.in-addr.arpa).
+```
+cp /etc/bind/db.local /etc/bind/jarkom/2.3.10.in-addr.arpa
+```
+
+Buka *file* [**2.3.10.in-addr.arpa**](2.3.10.in-addr.arpa) dan edit seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139523893-6b7d1253-49c3-4864-9e6e-a5bdf89a879d.JPG" width="600">
+
+*Restart* **bind9**.
+```
+service bind9 restart
+```
+
+Untuk mengecek apakah konfigurasi sudah benar atau belum, lakukan perintah berikut pada `Loguetown`.
+```
+// Install package dnsutils, ubah nameserver ke 192.168.122.1
+apt-get update
+apt-get install dnsutils -y
+
+// Kembalikan nameserver agar tersambung dengan EniesLobby
+host -t PTR 10.3.2.2
+```
+
+Akan muncul seperti ini.
+
+<img src="https://user-images.githubusercontent.com/37539546/139524715-85d1796b-09f9-4432-98a2-38e3c57670e5.JPG" width="600">
 
 ## Soal 5
 
