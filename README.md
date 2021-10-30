@@ -507,7 +507,7 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 ### Skypiea
 
-Buka *file* **franky.a08.com.conf** dan edit seperti konfigurasi berikut.
+Buka *file* **franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
 
 <img src="https://user-images.githubusercontent.com/37539546/139532756-0c25df64-c231-4b55-b239-a5a76036db18.JPG" width="600">
 
@@ -564,7 +564,7 @@ cp -r ~/super.franky/public /var/www/franky.a08.com
 cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/super.franky.a08.com.conf
 ```
 
-Buka *file* **franky.a08.com.conf** dan edit seperti konfigurasi berikut.
+Buka *file* **franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
 
 <img src="https://user-images.githubusercontent.com/37539546/139533323-3de741e8-9c1e-4281-a67c-12db8235fe98.JPG" width="600">
 
@@ -598,7 +598,7 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 ### Skypiea
 
-Buka *file* **franky.a08.com.conf** dan edit seperti konfigurasi berikut.
+Buka *file* **franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
 
 <img src="https://user-images.githubusercontent.com/37539546/139533527-07703fd8-ca6b-49f6-a7a9-d55a9494f054.JPG" width="600">
 
@@ -609,7 +609,7 @@ service apache2 restart
 
 ### Loguetown atau Alabasta
 
-Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah directory listing berhasil.
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah **directory listing** berhasil.
 ```
 lynx super.franky.a08.com/public
 lynx www.super.franky.a08.com/public
@@ -624,6 +624,27 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 ### Tidak hanya itu, Luffy juga menyiapkan error file `404.html` pada folder `/error` untuk mengganti error kode pada apache.
 
 ### Jawaban:
+
+Buka *file* **franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139533705-2880407c-a6d6-4e0e-bcc0-d91acf922616.JPG" width="600">
+
+*Restart* **apache2**.
+```
+service apache2 restart
+```
+
+### Loguetown atau Alabasta
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah *error file* **404.html** berhasil dimunculkan.
+```
+lynx super.franky.a08.com/wangy // Penamaan URL bebas
+lynx www.super.franky.a08.com/wangy // Penamaan URL bebas
+```
+
+Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139533780-8d0c02e5-e355-4259-b2af-c4bd580e1d23.JPG" width="600">
 
 ## Soal 13
 
