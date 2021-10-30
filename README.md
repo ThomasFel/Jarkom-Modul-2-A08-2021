@@ -787,6 +787,31 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 ### Jawaban:
 
+### Skypiea
+
+Buka *file* **000-default.conf** dan tambahkan seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139535316-ed5e9d9e-0918-4f90-994c-3053aca2b099.JPG" width="600">
+
+Buat *file* **.htaccess** pada folder **/var/www/html** dan tambahkan seperti konfigurasi berikut untuk *redirect* menggunakan **RewriteEngine**.
+
+<img src="https://user-images.githubusercontent.com/37539546/139535381-0d542410-62eb-402e-836e-e7647850e01f.JPG" width="350">
+
+### Loguetown atau Alabasta
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah *redirect* berhasil.
+```
+lynx 10.3.2.4
+```
+
+Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139536223-0a358f30-94cc-4dc1-a6fb-bc86c229b0d0.jpg" width="600">
+
+<img src="https://user-images.githubusercontent.com/37539546/139532643-22796155-cfc2-4983-a7bc-53818e75ea2b.JPG" width="600">
+
+**RewriteCond** melakukan filter pada *request* dengan IP **10.19.2.4** (IP Skypie), setelah itu **RewriteRule** akan menerima segala *request* dengan IP Skypie dengan folder atau *path* apapun dan segera melakukan *redirect* 301 ke [**www.franky.a08.com**](www.franky.a08.com).
+
 ## Soal 17
 
 ### Dikarenakan Franky juga ingin mengajak temannya untuk dapat menghubunginya melalui website **www.super.franky.yyy.com** dan karena pengunjung Web Server pasti akan bingung dengan random-nya image yang ada, maka Franky juga meminta untuk mengganti request gambar yang memiliki substring "franky" dan akan diarahkan menuju `franky.png`. Bantulah Luffy untuk membuat konfigurasi DNS dan Web Server ini!
