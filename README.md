@@ -1,4 +1,3 @@
-
 # Jarkom Modul 2 A08 - 2021
 
 Anggota:
@@ -425,6 +424,76 @@ Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah [**general.me
 ### Setelah melakukan konfigurasi server, maka dilakukan konfigurasi Web Server. Pertama dengan Web Server **www.franky.yyy.com**. Pertama, Luffy membutuhkan Web Server dengan DocumentRoot pada `/var/www/franky.yyy.com`.
 
 ### Jawaban:
+
+### Skypiea
+
+Melakukan instalasi **PHP**, **Apache2**, dan **Library Apache2** terlebih dahulu pada `Skypiea` dengan *update package list*. *Command* yang dijalankan adalah sebagai berikut.
+```
+apt-get update
+apt-get install apache2 -y
+apt-get install php -y
+apt-get install libapache2-mod-php7.0 -y
+
+apt-get install wget -y // Opsional, jika di perangkat tidak ada
+apt-get install unzip -y // Opsional, jika di perangkat tidak ada
+```
+
+*Download file requirement* yang [sudah diberikan](https://github.com/FeinardSlim/Praktikum-Modul-2-Jarkom) lewat *notes* di bawah menggunakan `wget`.
+```
+https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/franky.zip
+https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/super.franky.zip
+https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/general.mecha.franky.zip
+```
+(Note: Di sini menggunakan [RAW](https://raw.githubusercontent.com/) dari Github karena ada masalah saat proses *unzip*).
+
+*Unzip* semua **.zip** yang telah diunduh dan diletakkan di folder **root**.
+```
+unzip ~/franky.zip -d ~/
+unzip ~/super.franky.zip -d ~/
+unzip ~/general.mecha.zip -d ~/
+```
+
+Buat folder baru, yaitu **franky.a08.com** pada **/var/www**.
+```
+mkdir /etc/bind/sunnygo
+```
+
+*Copy file* **000-default.conf** ke dalam folder **sites-available** dan ubah namanya menjadi **franky.a08.com.conf**.
+```
+cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/franky.a08.com.conf
+```
+
+Buka *file* **franky.a08.com.conf** dan edit seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139532319-6b6ae9af-b613-4b78-9c9a-c6f00cf45e15.JPG" width="600">
+
+Aktifkan konfigurasi website dengan *command* berikut.
+```
+a2ensite franky.a08.com.conf
+```
+
+*Restart* **apache2**.
+```
+service apache2 restart
+```
+
+### Loguetown atau Alabasta
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah [**franky.a08.com**](franky.a08.com) atau [**franky.a08.com**](franky.a08.com) dapat diakses. Menggunakan **Lynx** untuk mengeceknya. *Install* terlebih dahulu **Lynx** jika belum ada.
+```
+// Ubah nameserver menjadi 192.168.122.1 agar bisa mengunduh, jangan lupa untuk mengembalikan ke bentuk semula
+apt-get install lynx -y
+```
+
+Kemudian, lakukan perintah ini untuk membuka website.
+```
+lynx franky.a08.com
+lynx www.franky.a08.com
+```
+
+Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139532643-22796155-cfc2-4983-a7bc-53818e75ea2b.JPG" width="600">
 
 ## Soal 9
 
