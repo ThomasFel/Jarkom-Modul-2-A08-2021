@@ -564,7 +564,7 @@ cp -r ~/super.franky/public /var/www/franky.a08.com
 cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/super.franky.a08.com.conf
 ```
 
-Buka *file* **franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
+Buka *file* **super.franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
 
 <img src="https://user-images.githubusercontent.com/37539546/139533323-3de741e8-9c1e-4281-a67c-12db8235fe98.JPG" width="600">
 
@@ -598,7 +598,7 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 ### Skypiea
 
-Buka *file* **franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
+Buka *file* **super.franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
 
 <img src="https://user-images.githubusercontent.com/37539546/139533527-07703fd8-ca6b-49f6-a7a9-d55a9494f054.JPG" width="600">
 
@@ -627,7 +627,7 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 ### Skypiea
 
-Buka *file* **franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
+Buka *file* **super.franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
 
 <img src="https://user-images.githubusercontent.com/37539546/139533705-2880407c-a6d6-4e0e-bcc0-d91acf922616.JPG" width="600">
 
@@ -656,7 +656,7 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 
 ### Skypiea
 
-Buka *file* **franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
+Buka *file* **super.franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
 
 <img src="https://user-images.githubusercontent.com/37539546/139533893-3993743f-74a7-4689-b390-08cdf7275951.JPG" width="600">
 
@@ -682,6 +682,58 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 ### Dan Luffy meminta untuk web **www.general.mecha.franky.yyy.com** hanya bisa diakses dengan port 15000 dan port 15500.
 
 ### Jawaban:
+
+### Skypiea
+
+*Unzip* **.zip** yang telah diunduh dan diletakkan di folder **root**.
+```
+unzip ~/general.mecha.franky.zip -d ~/
+```
+
+Buat folder baru, yaitu **general.mecha.franky.a08.com** pada **/var/www**.
+```
+mkdir /var/www/general.mecha.franky.a08.com
+```
+
+*Copy* semua *file* yang ada di folder hasil *unzip* ke folder **/var/www/general.mecha.franky.a08.com**.
+```
+cp ~/general.mecha.franky/* /var/www/general.mecha.franky.a08.com
+```
+
+*Copy file* **000-default.conf** ke dalam folder **sites-available** dan ubah namanya menjadi **general.mecha.franky.a08.com.conf**.
+```
+cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/general.mecha.franky.a08.com.conf
+```
+
+Buka *file* **general.mecha.franky.a08.com.conf** dan tambahkan seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139534099-19ff3a94-7fea-42e7-bd8c-348361af7701.JPG" width="600">
+
+Buka *file* **ports.conf** pada folder **/etc/apache2** dan tambahkan seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139534133-9b2e3259-64ff-4cab-9eb5-e968e78f1d3d.JPG" width="600">
+
+Aktifkan konfigurasi website dengan *command* berikut.
+```
+a2ensite general.mecha.franky.a08.com.conf
+```
+
+*Restart* **apache2**.
+```
+service apache2 restart
+```
+
+### Loguetown atau Alabasta
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah [**general.mecha.franky.a08.com**](general.mecha.franky.a08.com) atau [**www.general.mecha.franky.a08.com**](www.general.mecha.franky.a08.com) dapat diakses. 
+```
+lynx general.mecha.franky.a08.com:15000 atau general.mecha.franky.a08.com:15500 
+lynx www.general.mecha.franky.a08.com:15000 atau www.general.mecha.franky.a08.com:15500
+```
+
+Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139534298-175a5cc6-ef59-4546-9c1a-cf450331147b.JPG" width="600">
 
 ## Soal 15
 
