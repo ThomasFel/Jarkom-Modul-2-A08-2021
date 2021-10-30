@@ -453,7 +453,7 @@ unzip ~/franky.zip -d ~/
 
 Buat folder baru, yaitu **franky.a08.com** pada **/var/www**.
 ```
-mkdir /etc/bind/sunnygo
+mkdir /var/www/franky.a08.com
 ```
 
 *Copy* semua *file* yang ada di folder hasil *unzip* ke folder **/var/www/franky.a08.com**.
@@ -483,7 +483,7 @@ service apache2 restart
 
 ### Loguetown atau Alabasta
 
-Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah [**franky.a08.com**](franky.a08.com) atau [**franky.a08.com**](franky.a08.com) dapat diakses. Menggunakan **Lynx** untuk mengeceknya. *Install* terlebih dahulu **Lynx** jika belum ada.
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah [**franky.a08.com**](franky.a08.com) atau [**www.franky.a08.com**](www.franky.a08.com) dapat diakses. Menggunakan **Lynx** untuk mengeceknya. *Install* terlebih dahulu **Lynx** jika belum ada.
 ```
 // Ubah nameserver menjadi 192.168.122.1 agar bisa mengunduh, jangan lupa untuk mengembalikan ke bentuk semula
 apt-get install lynx -y
@@ -540,6 +540,55 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 ### Setelah itu, pada subdomain **www.super.franky.yyy.com**, Luffy membutuhkan penyimpanan aset yang memiliki DocumentRoot pada `/var/www/super.franky.yyy.com`.
 
 ### Jawaban:
+
+### Skypiea
+
+*Unzip* **.zip** yang telah diunduh dan diletakkan di folder **root**.
+```
+unzip ~/super.franky.zip -d ~/
+```
+
+Buat folder baru, yaitu **super.franky.a08.com** pada **/var/www**.
+```
+mkdir /var/www/super.franky.a08.com
+```
+
+*Copy* semua *file* yang ada di folder hasil *unzip* ke folder **/var/www/super.franky.a08.com**.
+```
+cp -r ~/super.franky/error /var/www/franky.a08.com
+cp -r ~/super.franky/public /var/www/franky.a08.com
+```
+
+*Copy file* **000-default.conf** ke dalam folder **sites-available** dan ubah namanya menjadi **super.franky.a08.com.conf**.
+```
+cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/super.franky.a08.com.conf
+```
+
+Buka *file* **franky.a08.com.conf** dan edit seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139533323-3de741e8-9c1e-4281-a67c-12db8235fe98.JPG" width="600">
+
+Aktifkan konfigurasi website dengan *command* berikut.
+```
+a2ensite super.franky.a08.com.conf
+```
+
+*Restart* **apache2**.
+```
+service apache2 restart
+```
+
+### Loguetown atau Alabasta
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah [**super.franky.a08.com**](super.franky.a08.com) atau [**www.super.franky.a08.com**](www.super.franky.a08.com) dapat diakses. 
+```
+lynx super.franky.a08.com
+lynx www.super.franky.a08.com
+```
+
+Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139533423-055eece5-87dd-4bed-9b86-5bfeb3400273.JPG" width="600">
 
 ## Soal 11
 
