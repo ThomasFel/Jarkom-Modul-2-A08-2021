@@ -105,6 +105,7 @@ Pertama, membuat topologi sesuai permintaan soal. Kemudian *setting network* mas
 ```
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.3.0.0/16
 ```
+(Note: *Prefix* IP yang digunakan sesuai *Prefix* IP Kelompok, dalam hal ini kelompok A8 adalah **10.3**).
 
 Dan ketikkan *command* ini pada `Foosha` untuk melihat IP DNS:
 ```
@@ -119,7 +120,7 @@ Agar *node*-*node* lainnya dapat mengakses internet, jalankan *command* berikut 
 echo nameserver 192.168.122.1 > /etc/resolv.conf
 ```
 
-*Restart* semua *node* kembali. Lalu, *testing* semua *node* apakah sudah terkoneksi dengan internet dengan `ping` ke [google.com](google.com). Sebagai contoh pada `Loguetown`:
+*Restart* semua *node* kembali. Lalu, *testing* semua *node* apakah sudah terkoneksi dengan internet dengan `ping` ke [**google.com**](google.com). Sebagai contoh pada `Loguetown`:
 
 <img src="https://user-images.githubusercontent.com/37539546/139522122-43ddb61d-0b3a-484f-a4a5-433109dd6529.JPG" width="600">
 
@@ -128,6 +129,52 @@ echo nameserver 192.168.122.1 > /etc/resolv.conf
 ### Luffy ingin menghubungi Franky yang berada di EniesLobby dengan denden mushi. Kalian diminta Luffy untuk membuat website utama dengan mengakses [**franky.yyy.com**](franky.yyy.com) dengan alias **www.franky.yyy.com** pada folder `kaizoku`.
 
 ### Jawaban:
+
+Melakukan instalasi **bind9** terlebih dahulu pada `EniesLobby` dengan *update package list*. *Command* yang dijalankan adalah sebagai berikut.
+```
+apt-get update
+apt-get install bind9 -y
+```
+
+Setelah instalasi selesai, buat domain [**franky.yyy.com**](franky.yyy.com). Lakukan *command* seperti berikut pada `EnniesLobby`.
+```
+nano /etc/bind/named.conf.local
+```
+
+Isi konfigurasi domain [**franky.yyy.com**](franky.yyy.com) sesuai sintaks berikut.
+```
+zone "franky.A08.com" {
+    type master;
+    file "/etc/bind/kaizoku/franky.B06.com";
+};
+```
+
+Buat folder baru, yaitu **kaizoku** pada **/etc/bind**.
+```
+mkdir /etc/bind/kaizoku
+```
+
+*Copy file* **db.local** ke dalam folder **kaizoku** yang baru dibuat dan ubah namanya menjadi [**franky.a08.com**](franky.a08.com).
+```
+cp /etc/bind/db.local /etc/bind/jarkom/franky.a08.com
+```
+
+Buka *file* [**franky.a08.com**](franky.a08.com) dan edit seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139522763-ee789d2f-0623-4ff5-a582-31833dfe5e83.JPG" width="600">
+
+Dalam konfigurasi ini sudah ditambahkan *record* **CNAME** [**www.franky.a08.com**](www.franky.a08.com) untuk membuat alias yang mengarahkan domain ke alamat/domain yang lain.
+
+*Restart* **bind9**.
+```
+service bind9 restart
+```
+
+Lakukan *testing* dengan menambahkan `nameserver 10.3.2.2` pada `Loguetown` dan `Alabasta` untuk cek apakah [**franky.a08.com**](franky.a08.com) atau [**www.franky.a08.com**](www.franky.a08.com) dapat diakses. Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139522919-ded4c8b1-6574-4f97-a8d5-53c86dace204.JPG" width="600">
+
+<img src="https://user-images.githubusercontent.com/37539546/139522948-93560bd1-891c-42e7-ac4c-d26980132d40.JPG" width="600">
 
 ## Soal 3
 
