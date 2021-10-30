@@ -869,5 +869,5 @@ Muncul perintah untuk mengunduh gambar.
 2.  *File requirement* [Github](https://github.com/FeinardSlim/Praktikum-Modul-2-Jarkom).
 
 ## Kendala
-1. Sedikit kesulitan no. 9 karena memakai Module Rewrite
-2. Server sempet kereset dan harus mengerjakan ulang dari no. 8
+1. Sedikit kesulitan no. 9 karena memakai **module rewrite**.
+2. Server sempet ke-reset dan harus mengerjakan ulang dari no. 8.
