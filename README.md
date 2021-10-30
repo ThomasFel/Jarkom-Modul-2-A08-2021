@@ -30,13 +30,98 @@ Anggota:
 
 Luffy adalah seorang yang akan jadi Raja Bajak Laut. Demi membuat Luffy menjadi Raja Bajak Laut, Nami ingin membuat sebuah peta, bantu Nami untuk membuat peta berikut:
 
-<img src="https://user-images.githubusercontent.com/37539546/139295630-c0a6b68f-848f-44fc-bbfb-a04615961fc9.JPG" width=600>
+<img src="https://user-images.githubusercontent.com/37539546/139521519-b07ec09a-047a-40af-bc7e-ec79be91fc8c.JPG" width=600>
 
 ## Soal 1
 
-### EniesLobby akan dijadikan sebagai DNS Master, Water7 akan dijadikan DNS Slave, dan Skypie akan digunakan sebagai Web Server. Terdapat 2 client yaitu Loguetown dan Alabasta. Semua node terhubung pada router Foosha sehingga dapat mengakses internet.
+### EniesLobby akan dijadikan sebagai DNS Master, Water7 akan dijadikan DNS Slave, dan Skypiea akan digunakan sebagai Web Server. Terdapat 2 client yaitu Loguetown dan Alabasta. Semua node terhubung pada router Foosha sehingga dapat mengakses internet.
 
 ### Jawaban:
+
+Pertama, membuat topologi sesuai permintaan soal. Kemudian *setting network* masing-masing *node* dengan fitur `Edit network configuration` yang ada di menu `Configure`. *Setting* awal yang sudah ada dapat dihapus dan diganti dengan konfigurasi berikut:
+
+- Foosha
+  ```
+  auto eth0
+  iface eth0 inet dhcp
+
+  auto eth1
+  iface eth1 inet static
+      address 10.3.1.1
+      netmask 255.255.255.0
+
+  auto eth2
+  iface eth2 inet static
+      address 10.3.2.1
+      netmask 255.255.255.0
+  ```
+  
+- Loguetown
+  ```
+  auto eth0
+  iface eth0 inet static
+      address 10.3.1.2
+      netmask 255.255.255.0
+    gateway 10.3.1.1
+  ```
+  
+- Alabasta
+  ```
+  auto eth0
+  iface eth0 inet static
+	    address 10.3.1.3
+	    netmask 255.255.255.0
+	    gateway 10.3.1.1
+  ```
+  
+- EniesLobby
+  ```
+  auto eth0
+  iface eth0 inet static
+      address 10.3.2.2
+      netmask 255.255.255.0
+      gateway 10.3.2.1
+  ```
+  
+- Water7
+  ```
+  auto eth0
+  iface eth0 inet static
+      address 10.3.2.3
+      netmask 255.255.255.0
+      gateway 10.3.2.1
+  ```
+  
+- Skypiea
+  ```
+  auto eth0
+  iface eth0 inet static
+      address 10.3.2.4
+      netmask 255.255.255.0
+      gateway 10.3.2.1
+  ```
+  
+*Restart* semua *node*. Lalu jalankan *command* berikut pada *router* `Foosha` untuk pengaturan lalu lintas komputer.
+```
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 10.3.0.0/16
+```
+
+Dan ketikkan *command* ini pada `Foosha` untuk melihat IP DNS:
+```
+cat /etc/resolv.conf
+```
+Akan muncul *nameserver* yang akan digunakan pada konfigurasi selanjutnya.
+
+<img src="https://user-images.githubusercontent.com/37539546/139521833-df4ae23e-08eb-4927-bd0e-992ec548670f.JPG" width="350">
+
+Agar *node*-*node* lainnya dapat mengakses internet, jalankan *command* berikut dan gunakan IP DNS dari `Foosha` tadi.
+```
+echo nameserver 192.168.122.1 > /etc/resolv.conf
+```
+
+*Restart* semua *node* kembali. Lalu, *testing* semua *node* apakah sudah terkoneksi dengan internet dengan `ping` ke [google.com](google.com). Sebagai contoh pada `Loguetown`:
+
+<img src="https://user-images.githubusercontent.com/37539546/139522122-43ddb61d-0b3a-484f-a4a5-433109dd6529.JPG" width="600">
 
 ## Soal 2
 
