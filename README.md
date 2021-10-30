@@ -446,16 +446,20 @@ https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/gene
 ```
 (Note: Di sini menggunakan [RAW](https://raw.githubusercontent.com/) dari Github karena ada masalah saat proses *unzip*).
 
-*Unzip* semua **.zip** yang telah diunduh dan diletakkan di folder **root**.
+*Unzip* **.zip** yang telah diunduh dan diletakkan di folder **root**.
 ```
 unzip ~/franky.zip -d ~/
-unzip ~/super.franky.zip -d ~/
-unzip ~/general.mecha.zip -d ~/
 ```
 
 Buat folder baru, yaitu **franky.a08.com** pada **/var/www**.
 ```
 mkdir /etc/bind/sunnygo
+```
+
+*Copy* semua *file* yang ada di folder hasil *unzip* ke folder **/var/www/franky.a08.com**.
+```
+cp ~/franky/home.html /var/www/franky.a08.com
+cp ~/franky/index.php /var/www/franky.a08.com
 ```
 
 *Copy file* **000-default.conf** ke dalam folder **sites-available** dan ubah namanya menjadi **franky.a08.com.conf**.
@@ -500,6 +504,36 @@ Jika sukses, maka akan memunculkan hasil seperti berikut.
 ### Setelah itu, Luffy juga membutuhkan agar URL **www.franky.yyy.com/index.php/home** dapat menjadi menjadi **www.franky.yyy.com/home**.
 
 ### Jawaban:
+
+### Skypiea
+
+Buka *file* **franky.a08.com.conf** dan edit seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139532756-0c25df64-c231-4b55-b239-a5a76036db18.JPG" width="600">
+
+Buat *file* **.htaccess** pada folder **/var/www/franky.a08.com** dan tambahkan seperti konfigurasi berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139533042-8b995690-a43b-4a7d-a3e3-275cfaa13a7b.JPG" width="350">
+
+Aktifkan **module rewrite** agar penulisan URL menjadi lebih rapi.
+```
+a2enmod rewrite
+```
+
+*Restart* **apache2**.
+```
+service apache2 restart
+```
+### Loguetown atau Alabasta
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah **module rewrite** berhasil dilakukan.
+```
+lynx franky.a08.com/home
+```
+
+Jika sukses, maka akan memunculkan hasil seperti berikut.
+
+<img src="https://user-images.githubusercontent.com/37539546/139532643-22796155-cfc2-4983-a7bc-53818e75ea2b.JPG" width="600">
 
 ## Soal 10
 
