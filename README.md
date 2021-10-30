@@ -161,7 +161,7 @@ cp /etc/bind/db.local /etc/bind/jarkom/franky.a08.com
 
 Buka *file* [**franky.a08.com**](franky.a08.com) dan edit seperti konfigurasi berikut.
 
-<img src="https://user-images.githubusercontent.com/37539546/139522763-ee789d2f-0623-4ff5-a582-31833dfe5e83.JPG" width="600">
+<img src="https://user-images.githubusercontent.com/37539546/139529629-1223d83b-da67-4cfe-a57a-8950972f0b59.JPG" width="600">
 
 Dalam konfigurasi ini sudah ditambahkan *record* **CNAME** [**www.franky.a08.com**](www.franky.a08.com) untuk membuat alias yang mengarahkan domain ke alamat/domain yang lain.
 
@@ -188,9 +188,9 @@ Buka *file* [**franky.a08.com**](franky.a08.com) dan edit seperti konfigurasi be
 
 Buat *file* lagi, yaitu [**super.franky.a08.com**](super.franky.a08.com) dan edit seperti konfigurasi berikut.
 
-<img src="https://user-images.githubusercontent.com/37539546/139523288-18162232-2136-4c87-9085-a57c6d988507.JPG" width="600">
+<img src="https://user-images.githubusercontent.com/37539546/139529702-14292d61-9ef5-437b-99d6-7896f3a64211.JPG" width="600">
 
-Tambahkan konfigurasi berikut pada **/etc/bind/named.conf.local**.
+Tambahkan konfigurasi berikut pada **/etc/bind/named.conf.local** di `EnniesLobby`.
 ```
 zone "super.franky.a08.com" {
     type master;
@@ -244,13 +244,62 @@ host -t PTR 10.3.2.2
 
 Akan muncul seperti ini.
 
-<img src="https://user-images.githubusercontent.com/37539546/139524715-85d1796b-09f9-4432-98a2-38e3c57670e5.JPG" width="600">
+<img src="https://user-images.githubusercontent.com/37539546/139524715-85d1796b-09f9-4432-98a2-38e3c57670e5.JPG" width="450">
 
 ## Soal 5
 
 ### Supaya tetap bisa menghubungi Franky jika server EniesLobby rusak, maka buat Water7 sebagai DNS Slave untuk domain utama.
 
 ### Jawaban:
+
+Modifikasi konfigurasi berikut pada **/etc/bind/named.conf.local** di `EnniesLobby`.
+```
+zone "super.franky.a08.com" {
+    type master;
+    notify yes;
+    also-notify { 10.3.2.3; }; // IP Water7
+    allow-transfer { 10.3.2.3; }; // IP Water7
+    file "/etc/bind/kaizoku/super.franky.a08.com";
+};
+```
+
+*Restart* **bind9**.
+```
+service bind9 restart
+```
+
+Melakukan instalasi **bind9** pada `Water7` dengan *update package list*. *Command* yang dijalankan adalah sebagai berikut.
+```
+apt-get update
+apt-get install bind9 -y
+```
+
+Tambahkan konfigurasi berikut pada **/etc/bind/named.conf.local** di `Water7`.
+```
+zone "super.franky.a08.com" {
+    type slave;
+    masters { 10.3.2.2; }; // IP EniesLobby
+    file "/var/lib/bind/franky.a08.com";
+};
+```
+
+*Restart* **bind9**.
+```
+service bind9 restart
+```
+
+Lakukan *testing* pada `Loguetown` dan `Alabasta` untuk cek apakah **DNS Slave** berhasil dibuat pada `Water7`. *Stop service* bind9 terlebih dahulu pada `EniesLobby`.
+```
+service bind9 stop
+```
+
+Pada `Loguetown` dan `Alabasta` jangan lupa untuk menambahkan *nameserver* `Water7`, yaitu **10.3.2.3** pada **/etc/resolv.conf**, sehingga menjadi seperti ini:
+
+<img src="https://user-images.githubusercontent.com/37539546/139530207-a51f307c-8945-4c1a-8692-8da693d5ec11.JPG" width="600">
+
+Hasilnya akan seperti ini ketika dijalankan di `EniesLobby`:
+
+<img src="https://user-images.githubusercontent.com/37539546/139530356-13e882cc-3525-4479-b9c5-c9f11d768a88.JPG" width="600">
 
 ## Soal 6
 
