@@ -161,7 +161,7 @@ mkdir /etc/bind/kaizoku
 
 *Copy file* **db.local** ke dalam folder **kaizoku** yang baru dibuat dan ubah namanya menjadi [**franky.a08.com**](franky.a08.com).
 ```
-cp /etc/bind/db.local /etc/bind/jarkom/franky.a08.com
+cp /etc/bind/db.local /etc/bind/kaizoku/franky.a08.com
 ```
 
 Buka *file* [**franky.a08.com**](franky.a08.com) dan edit seperti konfigurasi berikut.
