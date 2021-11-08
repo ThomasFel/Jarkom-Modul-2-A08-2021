@@ -440,9 +440,9 @@ apt-get install unzip -y // Opsional, jika di perangkat tidak ada
 
 *Download file requirement* yang [sudah diberikan](https://github.com/FeinardSlim/Praktikum-Modul-2-Jarkom) lewat *notes* di bawah menggunakan `wget`.
 ```
-https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/franky.zip
-https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/super.franky.zip
-https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/general.mecha.franky.zip
+wget https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/franky.zip
+wget https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/super.franky.zip
+wget https://raw.githubusercontent.com/FeinardSlim/Praktikum-Modul-2-Jarkom/main/general.mecha.franky.zip
 ```
 (Note: Di sini menggunakan [RAW](https://raw.githubusercontent.com/) dari Github karena ada masalah saat proses *unzip*).
 
