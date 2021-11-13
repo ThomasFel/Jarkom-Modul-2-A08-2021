@@ -797,7 +797,7 @@ Buka *file* **000-default.conf** dan tambahkan seperti konfigurasi berikut.
 
 Buat *file* **.htaccess** pada folder **/var/www/html** dan tambahkan seperti konfigurasi berikut untuk *redirect* menggunakan **RewriteEngine**.
 
-<img src="https://user-images.githubusercontent.com/37539546/139535381-0d542410-62eb-402e-836e-e7647850e01f.JPG" width="350">
+<img src="https://user-images.githubusercontent.com/37539546/139535381-0d542410-62eb-402e-836e-e7647850e01f.JPG" width="500">
 
 *Restart* **apache2**.
 ```
